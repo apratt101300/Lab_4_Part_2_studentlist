@@ -111,15 +111,11 @@ class TestStudentLists(TestCase):
         self.assertEqual(2, test_class.index_of_student('Hermione'))
         self.assertEqual(3, test_class.index_of_student('Ron'))
 
-        # This assert passes, but it's redundant - the first assert statement will fail if
-        # the method call returns None
-        self.assertIsNotNone(test_class.index_of_student('Harry'))
-
-
   
-    ## TODO write a test for index_of_student when the class_list list is empty.  
-    # Assert index_of_student returns None for a student if the list is empty. 
-    # use assertIsNone.
+   # test that index_of_student returns None when the list is empty
+    def test_index_of_student_None_empty_list(self):
+        test_class = ClassList(2)
+        self.assertIsNone(test_class.index_of_student('Jerry'))
  
  
     ## TODO write another test for index_of_student. In the case when the 
