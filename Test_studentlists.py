@@ -40,6 +40,17 @@ class TestStudentLists(TestCase):
         self.assertNotIn('Test Student', test_class.class_list)
 
 
+    def test_max_students_less_than_or_equal_zero(self):
+        with self.assertRaises(StudentError): # test a class with zero students allowed
+            ClassList(0)
+        with self.assertRaises(StudentError): # test a class with negative students allowed
+            ClassList(-5)
+
+            
+    def test_max_students_greater_than_zero(self):
+        ClassList(1) # make sure no error is raised when creating a max size greater than zero
+
+
     ## TODO write a test that adds some example students, 
     # then removes a student not in the list, and asserts a StudentError is raised
 
