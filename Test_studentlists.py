@@ -111,13 +111,13 @@ class TestStudentLists(TestCase):
         self.assertEqual(2, test_class.index_of_student('Hermione'))
         self.assertEqual(3, test_class.index_of_student('Ron'))
 
-  
+
     # test that index_of_student returns None when the list is empty
     def test_index_of_student_None_empty_list(self):
         test_class = ClassList(2)
         self.assertIsNone(test_class.index_of_student('Jerry'))
  
- 
+
     # test that index_of_student returns None when student is not in list
     def test_index_of_student_None_student_not_in_list(self):
         test_class = ClassList(5)
@@ -125,8 +125,7 @@ class TestStudentLists(TestCase):
         test_class.add_student('Johnny')
         self.assertIsNone(test_class.index_of_student('Jerry'))
  
-
-   
+ 
     # Test to see if the is_class_full method returns True when the class is full
     def test_full_class_list(self):
         test_class = ClassList(5)       
