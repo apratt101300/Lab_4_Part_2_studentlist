@@ -59,8 +59,11 @@ class TestStudentLists(TestCase):
             test_class.remove_student('Monica')
         
 
-    ## TODO write a test that removes a student from an 
-    # empty list, and asserts a StudentError is raised
+    def test_remove_student_from_empty_list(self): # test student error is raised when removing a student from an empty list
+        test_class = ClassList(1)
+
+        with self.assertRaises(StudentError): 
+            test_class.remove_student('Monica')
 
 
 
