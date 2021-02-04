@@ -31,13 +31,11 @@ class TestStudentLists(TestCase):
             test_class.add_student('Test Student')
 
 
-    ## TODO write a test that adds and removes a student, 
-    # and asserts the student is removed. Use assertNotIn
     def test_add_remove_student_ensure_removed(self):
         test_class = ClassList(2)
-        test_class.add_student('Test Student')
-        test_class.remove_student('Test Student')
-        self.assertNotIn('Test Student', test_class.class_list)
+        test_class.add_student('Maria')
+        test_class.remove_student('Maria')
+        self.assertNotIn('Maria', test_class.class_list)
 
 
     def test_max_students_less_than_or_equal_zero(self):
@@ -51,9 +49,15 @@ class TestStudentLists(TestCase):
         ClassList(1) # make sure no error is raised when creating a max size greater than zero
 
 
-    ## TODO write a test that adds some example students, 
-    # then removes a student not in the list, and asserts a StudentError is raised
+    def test_remove_student_not_in_list(self): # test StudentError is raised when removing a student not in the classlist
+        test_class = ClassList(5)
+        test_class.add_student('Maria')
+        test_class.add_student('Thomas')
+        test_class.add_student('Eric')
 
+        with self.assertRaises(StudentError): 
+            test_class.remove_student('Monica')
+        
 
     ## TODO write a test that removes a student from an 
     # empty list, and asserts a StudentError is raised
