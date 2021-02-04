@@ -66,7 +66,6 @@ class TestStudentLists(TestCase):
             test_class.remove_student('Monica')
 
 
-
     def test_is_enrolled_when_student_present(self):
         test_class = ClassList(2)
         test_class.add_student('Snoop Dogg')
@@ -80,9 +79,14 @@ class TestStudentLists(TestCase):
         self.assertFalse(test_class.is_enrolled('Snoop Dogg'))
 
 
-    ## TODO write a test that adds some example students to a test class,
-    ## then, call is_enrolled for a student who is not enrolled. 
-    # Use assertFalse to verify is_enrolled returns False.
+    # test that is_enrolled returns false if the specified student isn't in the class list
+    def test_student_not_enrolled(self): 
+        test_class = ClassList(5)       
+        test_class.add_student('Anna')
+        test_class.add_student('Mario')
+        test_class.add_student('Roger')
+
+        self.assertFalse(test_class.is_enrolled('Erica'))
 
 
     def test_string_with_students_enrolled(self):
@@ -134,13 +138,11 @@ class TestStudentLists(TestCase):
         self.assertTrue(test_class.is_class_full())
 
 
-    ## TODO write a test for your new is_class_full method for when is empty, 
-    # and when it is not full. Use assertFalse.
     def test_class_empty_or_not_full(self):
         test_class = ClassList(2) # test is_class_full on empty classlist
         self.assertFalse(test_class.is_class_full())
 
-        test_class.add_student('Maria')
+        test_class.add_student('Maria') # test is_class_full on not full classlist
         self.assertFalse(test_class.is_class_full())
         
 
